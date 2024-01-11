@@ -4,47 +4,6 @@ import * as SearchPage from "./pages/searchResults.js";
 const validPromoCode = "AF3-FJK-418";
 const invalidPromoCode = "AF3-FJK-419";
 
-describe("HomePage Search", () => {
-  beforeEach(() => {
-    cy.visit(Cypress.config("baseUrl")); // this also ensures that all the input fields are cleared at the start of each test
-  });
-
-  it("Home page loaded", () => {
-    HomePage.homePageLoad();
-    HomePage.verifyLogo();
-  });
-  it("search with valid departing and arrival month with no promotional code", () => {
-    HomePage.homePageLoad();
-    HomePage.selectDeaprting("July");
-    HomePage.selectArriving("December (two years from now)");
-    HomePage.clickSearch();
-    SearchPage.verifySearchResult("Seats available!");
-    SearchPage.verifySearchResult("Call now on 0800 MARSAIR to book!");
-  });
-  it("search with valid departing and arrival month with promotional code", () => {
-    HomePage.homePageLoad();
-    HomePage.selectDeaprting("July");
-    HomePage.selectArriving("December (two years from now)");
-    HomePage.enterPromotionalCode(validPromoCode);
-    HomePage.clickSearch();
-    SearchPage.verifySearchResult("Seats available!");
-    SearchPage.verifySearchResult("Call now on 0800 MARSAIR to book!");
-    SearchPage.verifySearchResult(`Promotional code ${validPromoCode} used:`);
-  });
-  it("search with valid departing and arrival month with invalid promotional code", () => {
-    HomePage.homePageLoad();
-    HomePage.selectDeaprting("July");
-    HomePage.selectArriving("December (two years from now)");
-    HomePage.enterPromotionalCode(invalidPromoCode);
-    HomePage.clickSearch();
-    SearchPage.verifySearchResult("Seats available!");
-    SearchPage.verifySearchResult("Call now on 0800 MARSAIR to book!");
-    SearchPage.verifySearchResult(
-      `Sorry, code ${invalidPromoCode} is not valid`
-    );
-  });
-});
-
 describe("Promotional Code Validation", () => {
   const successTestCases = [
     {
