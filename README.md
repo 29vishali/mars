@@ -21,5 +21,5 @@ Approach to testing this:
 - read the acceptance criteria
 - create a list of test cases based on the criteria,(faster way to feed in to chatgpt and then review, modify and edit the list provided)
 - do experimental testing 
-- refer to other booking sites to get insites on the user flow and experience to compare against this use case
+- refer to other booking sites to get insights on the user flow and experience to compare against this use case
 
