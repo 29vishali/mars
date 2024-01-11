@@ -22,4 +22,9 @@ Approach to testing this:
 - create a list of test cases based on the criteria,(faster way to feed in to chatgpt and then review, modify and edit the list provided)
 - do experimental testing 
 - refer to other booking sites to get insights on the user flow and experience to compare against this use case
+- write automation script:
+    - segregate tests based on feature
+    - page object modal
+    - organising data for tests
+    - different browsers
 
